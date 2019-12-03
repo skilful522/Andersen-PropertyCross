@@ -1,0 +1,28 @@
+{
+  "name": "andersen-propertycross",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-html": "^5.0.3",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skilful522/Andersen-PropertyCross.git"
+  },
+  "author": "Stanislav Sergienya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skilful522/Andersen-PropertyCross/issues"
+  },
+  "homepage": "https://github.com/skilful522/Andersen-PropertyCross#readme"
+}
