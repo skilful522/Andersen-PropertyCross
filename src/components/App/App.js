@@ -6,6 +6,7 @@ import HomePage from '../HomePage/HomePage';
 import FeedPage from '../FeedPage/FeedPage';
 import NewsPage from '../NewsPage/NewsPage';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import CounterContainer from '../../containers/CounterContainer';
 
 class App extends Component {
     render() {
@@ -13,6 +14,7 @@ class App extends Component {
             <Router>
                 <div>
                     <h1 className={styles.title}>My React App!</h1>
+                    <CounterContainer />
                 </div>
                 <Switch>
                     <Route exact path="/" component={HomePage} />
