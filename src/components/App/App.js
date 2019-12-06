@@ -7,6 +7,7 @@ import FeedPage from '../FeedPage/FeedPage';
 import NewsPage from '../NewsPage/NewsPage';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import CounterContainer from '../../containers/CounterContainer';
+import 'reset-css';
 
 class App extends Component {
     render() {
