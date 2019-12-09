@@ -22,7 +22,4 @@ CounterContainer.propTypes = {
     count: PropTypes.number,
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(CounterContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
