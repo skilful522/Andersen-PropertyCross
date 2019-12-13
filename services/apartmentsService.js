@@ -6,7 +6,6 @@ const defaultParams = {
     action: 'search_listings',
     country: 'uk',
     listing_type: 'buy',
-    page: '1',
 };
 
 const url = 'https://api.nestoria.co.uk/api';
@@ -18,14 +17,14 @@ function validateResponseCode(data) {
     return validateCodes.some((code) => responseCode === code);
 }
 
-function apartmentsService(location) {
-    const params = { ...defaultParams, ...location };
+function apartmentsService(payload) {
+    const params = { ...defaultParams, ...payload };
 
     return fetch(url + getParams(params))
         .then((response) => response.json())
         .then((data) => {
             if (validateResponseCode(data)) {
-                return data;
+                return data.response;
             }
             throw new Error('There was a problem with your search');
         });
