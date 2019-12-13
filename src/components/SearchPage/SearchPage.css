@@ -1,0 +1,9 @@
+.mainWrapper {
+    margin: 0 auto;
+}
+
+.errorWrapper {
+    padding: 50px;
+    font-size: 24px;
+    text-align: center;
+}

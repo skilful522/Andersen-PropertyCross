@@ -1,0 +1,88 @@
+.wrapper {
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorWrapper {
+    padding: 50px;
+    font-size: 24px;
+    text-align: center;
+    color: red;
+}
+
+.button {
+    outline: none;
+    cursor: pointer;
+
+    &:active {
+        box-shadow: 0 5px #666;
+        color: snow;
+        background: black;
+        transform: translateY(4px);
+    }
+}
+
+.inputWrapper,
+.navigationButtons {
+    display: flex;
+
+    @media (--large-desktop-width) {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.navigationButtons {
+    margin: 10px;
+
+    @media (--large-desktop-width) {
+        margin-right: 190px;
+    }
+}
+
+.go,
+.myLocation {
+    font-size: 24px;
+    border: 1px solid black;
+    background: snow;
+    box-shadow: 2px 3px rgba(0, 0, 0, 0.5);
+
+    @media (--large-desktop-width) {
+        font-size: 36px;
+    }
+}
+
+.go {
+    margin-right: 10px;
+}
+
+.inputWrapper {
+    margin: 10px;
+
+    @media (--large-desktop-width) {
+        font-size: 36px;
+    }
+}
+
+.searchInput {
+    font-size: 24px;
+    border: 1px solid black;
+    outline: none;
+    padding: 5px;
+    box-shadow: 2px 3px rgba(0, 0, 0, 0.5);
+
+    @media (--large-desktop-width) {
+        justify-content: center;
+        align-items: center;
+        font-size: 36px;
+    }
+}
+
+.userInteraction {
+    @media (--tablet-width) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

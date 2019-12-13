@@ -1,8 +1,8 @@
-import { counterReducer } from './counter';
 import { combineReducers } from 'redux';
+import searchedListReducer from './searchedListReducer';
 
 const rootReducer = combineReducers({
-    counter: counterReducer,
+    searchedListReducer,
 });
 
-export { rootReducer };
+export default rootReducer;

@@ -1,0 +1,72 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 10px 40px;
+
+    @media (--large-desktop-width) {
+        justify-content: center;
+    }
+}
+
+.titleName {
+    font-size: 24px;
+    margin-left: 50px;
+    text-align: center;
+    font-weight: bold;
+
+    @media (--tablet-width) {
+        margin-left: 250px;
+        font-size: 36px;
+    }
+
+    @media (--large-desktop-width) {
+        font-size: 48px;
+    }
+}
+
+.button {
+    outline: none;
+    cursor: pointer;
+
+    &:active {
+        box-shadow: 0 5px #666;
+        color: snow;
+        background: black;
+        transform: translateY(4px);
+    }
+}
+
+.faves {
+    font-size: 24px;
+    border: 1px solid black;
+    background: snow;
+    box-shadow: 5px 3px rgba(0, 0, 0, 0.5);
+
+    @media (--tablet-width) {
+        font-size: 36px;
+    }
+
+    @media (--large-desktop-width) {
+        margin-left: 300px;
+    }
+}
+
+.instructionText {
+    font-size: 24px;
+    margin: 10px;
+
+    @media (--tablet-width) {
+        font-size: 36px;
+    }
+
+    @media (--large-desktop-width) {
+        font-size: 48px;
+    }
+}

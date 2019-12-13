@@ -9,6 +9,7 @@ module.exports = {
     },
     devServer: {
         historyApiFallback: true,
+        port: 3000,
     },
     module: {
         rules: [
@@ -20,7 +21,7 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: [
-                    { loader: 'style-loader' },
+                    'style-loader',
                     {
                         loader: 'css-loader',
                         options: {

@@ -38,6 +38,7 @@ module.exports = {
       'pure-render-decorator',
       'ajv',
     ],
+    "newline-per-chained-call": [1, { "ignoreChainWithDepth": 1 }],
     'no-restricted-globals': [2, 'find'],
     'no-var': 0,
     'no-shadow': 1,
@@ -87,7 +88,7 @@ module.exports = {
     ],
     'newline-after-var': [
       // Нужно влкючить, когда поправят баг с добавлением пробела перед let
-      0,
+      2,
       'always',
     ],
     'new-cap': [
