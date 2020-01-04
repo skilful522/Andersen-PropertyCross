@@ -3,12 +3,11 @@ import styles from './ApartmentAds.css';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const ApartmentAds = ({ image, price, location, id, bedroomNumber, bathroomNumber, summary, title }) => {
+const ApartmentAds = ({ image, price, location, id, bedroomNumber, bathroomNumber, summary, title, page }) => {
     return (
         <Link
             to={{
-                pathname: `/results/${location}/${id}`,
-                apartmentInfo: { image, price, location, id, bedroomNumber, bathroomNumber, summary, title },
+                pathname: `/results/${location}/${page}/${id}`,
             }}
             className={styles.link}
         >
@@ -18,7 +17,7 @@ const ApartmentAds = ({ image, price, location, id, bedroomNumber, bathroomNumbe
                 </div>
                 <div className={styles.detail}>
                     <div className={styles.price}>{price}</div>
-                    <div className={styles.location}>{location}</div>
+                    <div className={styles.location}>{title}</div>
                 </div>
             </div>
         </Link>
@@ -29,7 +28,8 @@ ApartmentAds.propTypes = {
     image: PropTypes.string,
     price: PropTypes.string,
     location: PropTypes.string,
-    id: PropTypes.number,
+    id: PropTypes.string,
+    page: PropTypes.number,
     bedroomNumber: PropTypes.number,
     bathroomNumber: PropTypes.number,
     summary: PropTypes.string,

@@ -1,5 +1,5 @@
 const setLocaleStorage = (key, value) => {
-    return localStorage.setItem(key, JSON.stringify(value));
+    return Promise.resolve(localStorage.setItem(key, JSON.stringify(value)));
 };
 
 export default setLocaleStorage;
