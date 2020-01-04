@@ -1,0 +1,89 @@
+.contentWrapper {
+    margin: 0 20px;
+
+    @media (--tablet-width) {
+        margin-left: 150px;
+    }
+
+    @media (--desktop-width) {
+        margin-left: 250px;
+    }
+
+    @media (--large-desktop-width) {
+        margin-left: 350px;
+    }
+}
+
+.price,
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+    @media (--tablet-width) {
+        font-size: 35px;
+    }
+
+    @media (--desktop-width) {
+        font-size: 40px;
+    }
+
+    @media (--large-desktop-width) {
+        font-size: 45px;
+    }
+}
+
+.title {
+    font-size: 20px;
+
+    @media (--tablet-width) {
+        font-size: 25px;
+    }
+
+    @media (--desktop-width) {
+        font-size: 30px;
+    }
+
+    @media (--large-desktop-width) {
+        font-size: 35px;
+    }
+}
+
+.imageWrapper {
+    border: 2px solid black;
+    margin-bottom: 10px;
+
+    @media (--tablet-width) {
+        width: 85%;
+    }
+
+    @media (--desktop-width) {
+        width: 75%;
+    }
+
+    @media (--large-desktop-width) {
+        width: 65%;
+    }
+}
+
+.image {
+    width: 100%;
+}
+
+.description,
+.summary {
+    font-size: 18px;
+    margin-bottom: 10px;
+
+    @media (--tablet-width) {
+        font-size: 22px;
+    }
+
+    @media (--desktop-width) {
+        font-size: 24px;
+    }
+
+    @media (--large-desktop-width) {
+        font-size: 28px;
+    }
+}

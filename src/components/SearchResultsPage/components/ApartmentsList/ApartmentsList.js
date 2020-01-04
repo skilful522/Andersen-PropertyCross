@@ -7,6 +7,7 @@ import Error from '../../../../Error/Error';
 import processTitle from '../../../../utils/processTitle';
 import debounce from '../../../../utils/debounce';
 import { withRouter } from 'react-router-dom';
+import getAppartmentId from '../../../../utils/getApartmentId ';
 
 class ApartmentsList extends React.PureComponent {
     state = {
@@ -21,9 +22,9 @@ class ApartmentsList extends React.PureComponent {
 
     loadApartments = () => {
         this.setState({ loading: true });
+        const { getApartmentsList, currentPage } = this.props;
 
-        return this.props
-            .getApartmentsList({ city: this.props.match.params.location, page: this.props.currentPage + 1 })
+        return getApartmentsList({ city: this.props.match.params.location, page: currentPage + 1 })
             .catch((error) => this.setState({ error: error.message }))
             .finally(() => this.setState({ loading: false }));
     };
@@ -32,7 +33,7 @@ class ApartmentsList extends React.PureComponent {
 
     render() {
         const { error, loading } = this.state;
-        const { apartmentsList, match, totalResults } = this.props;
+        const { apartmentsList, match, totalResults, currentPage } = this.props;
         const { location } = match.params;
 
         if (!apartmentsList.length) {
@@ -55,10 +56,11 @@ class ApartmentsList extends React.PureComponent {
                         summary={apartment.summary}
                         key={apartment.lister_url}
                         image={apartment.thumb_url}
-                        id={apartment.latitude + apartment.price_high}
+                        id={getAppartmentId(apartment.lister_url)}
                         price={apartment.price_formatted}
-                        location={apartment.title}
                         title={processTitle(apartment.title)}
+                        page={currentPage}
+                        location={location}
                     />
                 ))}
                 <div className={styles.loadMoreWrapper}>

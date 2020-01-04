@@ -1,0 +1,91 @@
+.searchResultsLinkWrapper {
+    text-align: center;
+}
+
+.link {
+    font-size: 14px;
+    font-family: "Comic Sans MS", sans-serif;
+    color: black;
+    margin: 0 5px;
+    text-decoration: none;
+
+    @media (--tablet-width) {
+        font-size: 18px;
+    }
+
+    @media (--desktop-width) {
+        font-size: 22px;
+    }
+
+    @media (--large-desktop-width) {
+        font-size: 26px;
+    }
+}
+
+.pageTitle {
+    text-align: center;
+    font-size: 18px;
+
+    @media (--tablet-width) {
+        font-size: 22px;
+    }
+
+    @media (--desktop-width) {
+        font-size: 26px;
+    }
+
+    @media (--large-desktop-width) {
+        font-size: 30px;
+    }
+}
+
+.titleWrapper {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 80px 20px;
+
+    @media (--tablet-width) {
+        margin: 20px 290px 20px;
+    }
+
+    @media (--desktop-width) {
+        margin: 20px 390px 20px;
+    }
+
+    @media (--large-desktop-width) {
+        margin: 20px 540px 20px;
+    }
+}
+
+.favoritesButton {
+    font-size: 18px;
+    border: 1px solid black;
+    position: absolute;
+    background: snow;
+    -webkit-box-shadow: 5px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 3px rgba(0, 0, 0, 0.5);
+
+    @media (--tablet-width) {
+        font-size: 22px;
+    }
+
+    @media (--desktop-width) {
+        font-size: 26px;
+    }
+
+    @media (--large-desktop-width) {
+        font-size: 30px;
+    }
+}
+
+.button {
+    outline: none;
+    cursor: pointer;
+
+    &:active {
+        box-shadow: 0 5px #666;
+        color: snow;
+        background: black;
+        transform: translateY(4px);
+    }
+}
