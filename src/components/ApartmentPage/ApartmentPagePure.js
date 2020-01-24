@@ -9,9 +9,9 @@ import Loader from '../Loader/Loader';
 class ApartmentPagePure extends PureComponent {
     componentDidMount() {
         const { getFavoriteList, match, fetchCurrentApartment } = this.props;
-        const { location, page, id } = match.params;
+        const { id, location } = match.params;
 
-        fetchCurrentApartment({ location, page, id });
+        fetchCurrentApartment({ id, location, page: 1 });
         getFavoriteList();
     }
 

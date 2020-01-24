@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import styles from './ApartmentsList.css';
 import Loader from '../../../Loader/Loader';
 import ApartmentAds from '../ApartmentAds/ApartmentAds';
-import Error from '../../../../Error/Error';
+import Error from '../../../Error/Error';
 import processTitle from '../../../../utils/processTitle';
 import debounce from '../../../../utils/debounce';
 import { withRouter } from 'react-router-dom';
-import getAppartmentId from '../../../../utils/getApartmentId ';
+import getApartmentId from '../../../../utils/getApartmentId';
 
 class ApartmentsList extends React.PureComponent {
     state = {
@@ -33,7 +33,7 @@ class ApartmentsList extends React.PureComponent {
 
     render() {
         const { error, loading } = this.state;
-        const { apartmentsList, match, totalResults, currentPage } = this.props;
+        const { apartmentsList, match, totalResults } = this.props;
         const { location } = match.params;
 
         if (!apartmentsList.length) {
@@ -56,10 +56,9 @@ class ApartmentsList extends React.PureComponent {
                         summary={apartment.summary}
                         key={apartment.lister_url}
                         image={apartment.thumb_url}
-                        id={getAppartmentId(apartment.lister_url)}
+                        id={getApartmentId(apartment.lister_url)}
                         price={apartment.price_formatted}
                         title={processTitle(apartment.title)}
-                        page={currentPage}
                         location={location}
                     />
                 ))}

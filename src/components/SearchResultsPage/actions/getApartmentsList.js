@@ -1,10 +1,10 @@
 import apartmentsService from '../../../../services/apartmentsService';
 
-function getApartmentsList(payload) {
+function getApartmentsList({ city, page }) {
     return (dispatch) => {
-        return apartmentsService({ place_name: payload.city, page: payload.page }).then((payload) => {
+        return apartmentsService({ place_name: city, page }).then((payload) => {
             return dispatch({
-                type: 'SEARCH_RESULTS_LIST_UPDATE',
+                type: 'SEARCH_RESULTS_LIST_UPDATED',
                 payload,
             });
         });

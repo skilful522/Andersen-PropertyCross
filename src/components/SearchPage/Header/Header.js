@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import styles from './Header.css';
+import { Redirect } from 'react-router-dom';
+import cx from 'classnames';
 
 const Header = () => {
+    const [isRedirect, setIsRedirect] = useState(false);
+
+    const handleClick = useCallback(() => {
+        setIsRedirect(true);
+    });
+
+    if (isRedirect) {
+        return <Redirect to="/favorites" from="/" />;
+    }
+
     return (
         <div className={styles.wrapper}>
             <div className="header">
                 <div className={styles.title}>
                     <h1 className={styles.titleName}>PropertyCross</h1>
-                    <button className={`${styles.faves} ${styles.button}`}>Faves</button>
+                    <button className={cx(styles.faves, styles.button)} onClick={handleClick}>
+                        Faves
+                    </button>
                 </div>
                 <div className={styles.instructionText}>
                     Use the form below to search for houses to buy. You can search by place-name, postcode, or click

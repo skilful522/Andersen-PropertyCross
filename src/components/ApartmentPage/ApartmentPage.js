@@ -14,12 +14,12 @@ function checkApartmentInFavorite(favoriteListReducer, currentApartmentId) {
     return includes(currentApartment, favoriteList);
 }
 
-const mapStateToProps = ({ favoriteListReducer, apartmentsListReducer }, props) => {
+const mapStateToProps = ({ favoriteListReducer, currentApartmentReducer }, props) => {
     const { id } = props.match.params;
 
     return {
         isAdded: checkApartmentInFavorite(favoriteListReducer, id),
-        currentApartment: apartmentsListReducer.currentApartment,
+        currentApartment: currentApartmentReducer[id],
     };
 };
 

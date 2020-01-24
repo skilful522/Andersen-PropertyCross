@@ -1,20 +1,25 @@
 import apartmentsService from '../../../../services/apartmentsService';
-import getApartmentId from '../../../utils/getApartmentId ';
+import getApartmentId from '../../../utils/getApartmentId';
 
-function fetchCurrentApartment(payload) {
-    const { location, page, id } = payload;
-
+function fetchCurrentApartment({ id, location, page }) {
     return (dispatch) => {
-        return apartmentsService({ place_name: location, page }).then(({ listings }) => {
-            const currentApartment = listings.find((apartment) => {
-                return getApartmentId(apartment.lister_url) === id;
-            });
+        function recursiveSearch(id, location, page) {
+            return apartmentsService({ place_name: location, page }).then(({ listings }) => {
+                const currentApartment = listings.find((apartment) => {
+                    return getApartmentId(apartment.lister_url) === id;
+                });
 
-            return dispatch({
-                type: 'CURRENT_APARTMENT_LOADED',
-                payload: { ...currentApartment, id },
+                if (currentApartment) {
+                    return dispatch({
+                        type: 'CURRENT_APARTMENT_LOADED',
+                        payload: { ...currentApartment, id, location },
+                    });
+                }
+                return recursiveSearch(id, location, page + 1);
             });
-        });
+        }
+        return recursiveSearch(id, location, page);
     };
 }
+
 export default fetchCurrentApartment;
