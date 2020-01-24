@@ -3,7 +3,11 @@ import getApartmentsList from '../actions/getApartmentsList';
 import ApartmentsList from '../components/ApartmentsList/ApartmentsList';
 
 const mapStateToProps = ({ apartmentsListReducer: { apartmentsList, totalResults, currentPage } }) => {
-    return { apartmentsList, totalResults, currentPage };
+    return {
+        apartmentsList,
+        totalResults,
+        currentPage,
+    };
 };
 
 const mapDispatchToProps = (dispatch) => ({

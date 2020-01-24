@@ -4,7 +4,7 @@ const initialState = {
 
 function favoriteListReducer(state = initialState, { type, payload }) {
     switch (type) {
-        case 'UPDATE_FAVORITE_LIST':
+        case 'FAVORITE_LIST_UPDATED':
             return {
                 ...state,
                 favoriteList: payload,

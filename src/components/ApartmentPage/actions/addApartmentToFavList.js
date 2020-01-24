@@ -8,7 +8,7 @@ function addApartmentToFavList(apartment) {
             if (!includes(apartment, favoriteList)) {
                 return setLocaleStorage('favoriteList', [...favoriteList, apartment]).then(() => {
                     return dispatch({
-                        type: 'UPDATE_FAVORITE_LIST',
+                        type: 'FAVORITE_LIST_UPDATED',
                         payload: [...favoriteList, apartment],
                     });
                 });

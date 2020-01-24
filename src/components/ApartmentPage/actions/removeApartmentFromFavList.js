@@ -8,7 +8,7 @@ function removeApartmentFromFavList(payload) {
 
             return setLocaleStorage('favoriteList', favoriteList).then(() => {
                 return dispatch({
-                    type: 'UPDATE_FAVORITE_LIST',
+                    type: 'FAVORITE_LIST_UPDATED',
                     payload: favoriteList,
                 });
             });

@@ -1,0 +1,16 @@
+.wrapper {
+    margin: 0 auto;
+    max-width: 90%;
+
+    @media (--tablet-width) {
+        max-width: 75%;
+    }
+
+    @media (--desktop-width) {
+        max-width: 65%;
+    }
+
+    @media (--large-desktop-width) {
+        max-width: 55%;
+    }
+}
