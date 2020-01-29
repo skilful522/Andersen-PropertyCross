@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import Loader from '../../../Loader/Loader';
 import cx from 'classnames';
 
-const ContentSearchPure = ({ addSearchedLocation }) => {
+const ContentSearchPure = ({ addSearchedLocation, getLocation }) => {
     const [location, setLocation] = useState('Newcastle');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
@@ -28,6 +28,15 @@ const ContentSearchPure = ({ addSearchedLocation }) => {
             .finally(() => setLoading(false));
     });
 
+    const handleLocationClick = useCallback(() => {
+        setLoading(true);
+        return getLocation()
+            .then((location) => setLocation(location))
+            .then(() => setIsRedirect(true))
+            .catch(() => setError('Unable to detect current location.'))
+            .finally(() => setLoading(false));
+    });
+
     if (loading) {
         return <Loader />;
     }
@@ -46,7 +55,9 @@ const ContentSearchPure = ({ addSearchedLocation }) => {
                     <button className={cx(styles.go, styles.button)} onClick={handleFetchApartment}>
                         Go
                     </button>
-                    <button className={cx(styles.myLocation, styles.button)}>My location</button>
+                    <button className={cx(styles.myLocation, styles.button)} onClick={handleLocationClick}>
+                        My location
+                    </button>
                 </div>
             </div>
             {error ? <div className={styles.errorWrapper}>{error}</div> : <SearchedListContainer />}
@@ -56,6 +67,7 @@ const ContentSearchPure = ({ addSearchedLocation }) => {
 
 ContentSearchPure.propTypes = {
     addSearchedLocation: PropTypes.func,
+    getLocation: PropTypes.func,
 };
 
 export default ContentSearchPure;
