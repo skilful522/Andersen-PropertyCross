@@ -12,7 +12,7 @@ const url = 'https://api.nestoria.co.uk/api';
 
 function validateResponseCode(data) {
     const responseCode = Number(data.response.application_response_code);
-    const validateCodes = [100, 101, 110];
+    const validateCodes = [100, 101, 110, 200, 202];
 
     return validateCodes.some((code) => responseCode === code);
 }
