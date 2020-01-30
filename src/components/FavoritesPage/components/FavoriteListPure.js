@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ApartmentAds from '../../SearchResultsPage/components/ApartmentAds/ApartmentAds';
-import processTitle from '../../../utils/processTitle';
 import getApartmentId from '../../../utils/getApartmentId';
 import PropTypes from 'prop-types';
 import styles from './FavoriteListPure.css';
@@ -31,7 +30,7 @@ class FavoriteListPure extends Component {
                         image={apartment.thumb_url}
                         id={getApartmentId(apartment.lister_url)}
                         price={apartment.price_formatted}
-                        title={processTitle(apartment.title)}
+                        title={apartment.title}
                         page={Number(apartment.page)}
                         location={apartment.location}
                     />
