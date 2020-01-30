@@ -1,5 +1,11 @@
-import { values, mapObjIndexed } from 'ramda';
-
-const getParams = (obj) => `?${values(mapObjIndexed((key, value) => `${value}=${key}&`, obj)).join('')}`;
+function getParams(params) {
+    if (params) {
+        return `?${Object.keys(params)
+            .map((key) => (params[key] ? `${key}=${params[key]}` : ''))
+            .filter(Boolean)
+            .join('&')}`;
+    }
+    return '';
+}
 
 export default getParams;

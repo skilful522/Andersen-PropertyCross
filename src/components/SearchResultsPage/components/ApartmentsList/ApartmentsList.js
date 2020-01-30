@@ -4,7 +4,6 @@ import styles from './ApartmentsList.css';
 import Loader from '../../../Loader/Loader';
 import ApartmentAds from '../ApartmentAds/ApartmentAds';
 import Error from '../../../Error/Error';
-import processTitle from '../../../../utils/processTitle';
 import debounce from '../../../../utils/debounce';
 import { withRouter } from 'react-router-dom';
 import getApartmentId from '../../../../utils/getApartmentId';
@@ -58,7 +57,7 @@ class ApartmentsList extends React.PureComponent {
                         image={apartment.thumb_url}
                         id={getApartmentId(apartment.lister_url)}
                         price={apartment.price_formatted}
-                        title={processTitle(apartment.title)}
+                        title={apartment.title}
                         location={location}
                     />
                 ))}

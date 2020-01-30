@@ -8,10 +8,11 @@ module.exports = {
       legacyDecorators: true,
     },
   },
-  plugins: ['react', 'jsx-a11y', 'import'],
+  plugins: ['react', 'jsx-a11y', 'import', 'jest'],
   env: {
     browser: true,
     node: true,
+      jest: true,
   },
   settings: {
     'import/parser': 'babel-eslint',

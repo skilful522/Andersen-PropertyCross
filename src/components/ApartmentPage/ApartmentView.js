@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ApartmentView.css';
-import processTitle from '../../utils/processTitle';
 
 const ApartmentView = ({ currentApartment }) => {
     return (
         <div className={styles.contentWrapper}>
             <div className={styles.price}>{currentApartment.price_formatted}</div>
-            <div className={styles.title}>{processTitle(currentApartment.title)}</div>
+            <div className={styles.title}>{currentApartment.title}</div>
             <div className={styles.imageWrapper}>
                 <img className={styles.image} src={currentApartment.thumb_url} alt="apartment" />
             </div>
