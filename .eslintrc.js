@@ -15,12 +15,17 @@ module.exports = {
       jest: true,
   },
   settings: {
-    'import/parser': 'babel-eslint',
-    'import/ignore': ['node_modules', 'plugins', '.(json|less|css|xml)$'],
-    react: {
-      pragma: 'React',
-      version: '16.4.0',
-    },
+      'import/parser': 'babel-eslint',
+      'import/ignore': ['node_modules', 'plugins', '.(json|less|css|xml)$'],
+      'import/resolver': {
+          node: {
+              extensions: ['.js', '.jsx', '.ts', '.tsx'],
+          },
+          react: {
+              pragma: 'React',
+              version: '16.4.0',
+          },
+      },
   },
   globals: {
     jsdom_locationAssignParams: true, // TODO перенести в плагин

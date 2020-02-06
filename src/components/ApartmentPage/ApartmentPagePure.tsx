@@ -1,12 +1,21 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import styles from './ApartmentPage.css';
 import { NavLink } from 'react-router-dom';
 import cx from 'classnames';
-import ApartmentView from './ApartmentView';
 import Loader from '../Loader/Loader';
+import ApartmentView from './ApartmentView';
 
-class ApartmentPagePure extends PureComponent {
+interface Props {
+    getFavoriteList: () => Promise<any>,
+    currentApartment: CurrentApartment,
+    match: Match,
+    fetchCurrentApartment: (payload: FetchCurrentApartment) => Promise<any>,
+    addApartmentToFavList: (currentApartment:CurrentApartment) => Promise<any>,
+    removeApartmentFromFavList: (currentApartment: CurrentApartment) => Promise<any>,
+    isAdded: boolean,
+}
+
+class ApartmentPagePure extends PureComponent<Props> {
     componentDidMount() {
         const { getFavoriteList, match, fetchCurrentApartment } = this.props;
         const { id, location } = match.params;
@@ -77,14 +86,5 @@ class ApartmentPagePure extends PureComponent {
     }
 }
 
-ApartmentPagePure.propTypes = {
-    getFavoriteList: PropTypes.func,
-    fetchCurrentApartment: PropTypes.func,
-    addApartmentToFavList: PropTypes.func,
-    removeApartmentFromFavList: PropTypes.func,
-    match: PropTypes.object,
-    isAdded: PropTypes.bool,
-    currentApartment: PropTypes.object,
-};
 
 export default ApartmentPagePure;

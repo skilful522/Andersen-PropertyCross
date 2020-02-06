@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import ApartmentAds from '../../SearchResultsPage/components/ApartmentAds/ApartmentAds';
 import getApartmentId from '../../../utils/getApartmentId';
-import PropTypes from 'prop-types';
 import styles from './FavoriteListPure.css';
 import Error from '../../Error/Error';
 
-class FavoriteListPure extends Component {
+interface Props {
+    getFavoriteList: () => Promise<any>,
+    favoriteList: Apartment[],
+}
+
+class FavoriteListPure extends Component<Props> {
     componentDidMount() {
         this.props.getFavoriteList();
     }
@@ -39,10 +43,5 @@ class FavoriteListPure extends Component {
         );
     }
 }
-
-FavoriteListPure.propTypes = {
-    favoriteList: PropTypes.array,
-    getFavoriteList: PropTypes.func,
-};
 
 export default FavoriteListPure;

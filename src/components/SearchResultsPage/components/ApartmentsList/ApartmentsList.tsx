@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './ApartmentsList.css';
 import Loader from '../../../Loader/Loader';
 import ApartmentAds from '../ApartmentAds/ApartmentAds';
@@ -9,8 +8,21 @@ import { withRouter } from 'react-router-dom';
 import getApartmentId from '../../../../utils/getApartmentId';
 import addSearchedLocation from '../../../SearchPage/actions/addSearchedLocation';
 
-class ApartmentsList extends React.PureComponent {
-    state = {
+interface Props {
+    apartmentsList: Apartment[],
+    getApartmentsList: (payload:{ city: string; page: number }) => Promise<any>,
+    currentPage: number,
+    match: Match,
+    totalResults: number
+}
+
+type State = {
+    loading: boolean,
+    error?: string
+}
+
+class ApartmentsList extends React.PureComponent<Props>{
+    state: State= {
         loading: false,
     };
 
@@ -90,13 +102,5 @@ class ApartmentsList extends React.PureComponent {
         );
     }
 }
-
-ApartmentsList.propTypes = {
-    apartmentsList: PropTypes.array,
-    getApartmentsList: PropTypes.func,
-    currentPage: PropTypes.number,
-    match: PropTypes.object,
-    totalResults: PropTypes.number,
-};
 
 export default withRouter(ApartmentsList);

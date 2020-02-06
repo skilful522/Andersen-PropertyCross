@@ -1,9 +1,19 @@
 import React from 'react';
 import styles from './ApartmentAds.css';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const ApartmentAds = ({ image, price, location, id, bedroomNumber, bathroomNumber, summary, title }) => {
+interface Props {
+    image: string,
+    price: string,
+    location: string,
+    id: string,
+    bedroomNumber: number,
+    bathroomNumber: number,
+    summary: string,
+    title: string,
+}
+
+const ApartmentAds = ({ image, price, location, id, bedroomNumber, bathroomNumber, summary, title } : Props) => {
     return (
         <Link
             to={{
@@ -22,17 +32,6 @@ const ApartmentAds = ({ image, price, location, id, bedroomNumber, bathroomNumbe
             </div>
         </Link>
     );
-};
-
-ApartmentAds.propTypes = {
-    image: PropTypes.string,
-    price: PropTypes.string,
-    location: PropTypes.string,
-    id: PropTypes.string,
-    bedroomNumber: PropTypes.number,
-    bathroomNumber: PropTypes.number,
-    summary: PropTypes.string,
-    title: PropTypes.string,
 };
 
 export default ApartmentAds;
