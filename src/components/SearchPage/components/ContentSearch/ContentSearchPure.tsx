@@ -2,15 +2,19 @@ import React, { useCallback } from 'react';
 import SearchedListContainer from '../../containers/SearchedListContainer';
 import { Redirect } from 'react-router-dom';
 import styles from './ContentSearch.css';
-import PropTypes from 'prop-types';
 import Loader from '../../../Loader/Loader';
 import cx from 'classnames';
 
-const ContentSearchPure = ({ addSearchedLocation, getLocation }) => {
-    const [location, setLocation] = React.useState('Newcastle');
-    const [loading, setLoading] = React.useState(false);
-    const [error, setError] = React.useState();
-    const [isRedirect, setIsRedirect] = React.useState(false);
+interface Props {
+    addSearchedLocation: (location: string) => Promise<any>,
+    getLocation: () => Promise<any>,
+}
+
+const ContentSearchPure: React.FC<Props> = ({ addSearchedLocation, getLocation }) => {
+    const [location, setLocation] = React.useState<string>('Newcastle');
+    const [loading, setLoading] = React.useState<boolean>(false);
+    const [error, setError] = React.useState<string>();
+    const [isRedirect, setIsRedirect] = React.useState<boolean>(false);
 
     const handleInputChange = useCallback(
         (event) => {
@@ -22,16 +26,16 @@ const ContentSearchPure = ({ addSearchedLocation, getLocation }) => {
 
     const handleRedirect = useCallback(() => {
         setIsRedirect(true);
-    });
+    },[isRedirect]);
 
     const handleLocationClick = useCallback(() => {
         setLoading(true);
         return getLocation()
-            .then((location) => setLocation(location))
+            .then((location: string) => setLocation(location))
             .then(() => setIsRedirect(true))
             .catch(() => setError('Unable to detect current location.'))
             .finally(() => setLoading(false));
-    });
+    }, []);
 
     if (loading) {
         return <Loader />;
@@ -59,11 +63,6 @@ const ContentSearchPure = ({ addSearchedLocation, getLocation }) => {
             {error ? <div className={styles.errorWrapper}>{error}</div> : <SearchedListContainer />}
         </div>
     );
-};
-
-ContentSearchPure.propTypes = {
-    addSearchedLocation: PropTypes.func,
-    getLocation: PropTypes.func,
 };
 
 export default ContentSearchPure;

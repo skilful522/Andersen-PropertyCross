@@ -4,11 +4,11 @@ import { Redirect } from 'react-router-dom';
 import cx from 'classnames';
 
 const Header = () => {
-    const [isRedirect, setIsRedirect] = React.useState(false);
+    const [isRedirect, setIsRedirect] = React.useState<boolean>(false);
 
     const handleClick = useCallback(() => {
         setIsRedirect(true);
-    });
+    }, [isRedirect]);
 
     if (isRedirect) {
         return <Redirect to="/favorites" from="/" />;

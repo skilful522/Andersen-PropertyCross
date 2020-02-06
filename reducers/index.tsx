@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import apartmentsListReducer from './apartmentsListReducer';
 import searchedListReducer from './searchedListReducer';
+import apartmentsListReducer from './apartmentsListReducer';
 import favoriteListReducer from './favoriteListReducer';
 import currentApartmentReducer from './currentApartmentReducer';
 

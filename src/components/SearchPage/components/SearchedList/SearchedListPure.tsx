@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import styles from './SearchedList.css';
 
-class SearchedListPure extends Component {
+interface Props {
+    fetchSearchedList: () => Promise<any>,
+    searchedList: string[]
+}
+
+class SearchedListPure extends Component<Props> {
     componentDidMount() {
         this.props.fetchSearchedList();
     }
@@ -24,10 +28,5 @@ class SearchedListPure extends Component {
         );
     }
 }
-
-SearchedListPure.propTypes = {
-    searchedList: PropTypes.array,
-    fetchSearchedList: PropTypes.func,
-};
 
 export default SearchedListPure;

@@ -1,8 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './ApartmentView.css';
 
-const ApartmentView = ({ currentApartment }) => {
+interface Props {
+    currentApartment: CurrentApartment;
+}
+
+const ApartmentView = ({ currentApartment }: Props) => {
     return (
         <div className={styles.contentWrapper}>
             <div className={styles.price}>{currentApartment.price_formatted}</div>
@@ -16,10 +19,6 @@ const ApartmentView = ({ currentApartment }) => {
             <div className={styles.summary}>{currentApartment.summary}</div>
         </div>
     );
-};
-
-ApartmentView.propTypes = {
-    currentApartment: PropTypes.object,
 };
 
 export default ApartmentView;
