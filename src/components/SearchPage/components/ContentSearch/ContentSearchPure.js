@@ -20,12 +20,8 @@ const ContentSearchPure = ({ addSearchedLocation, getLocation }) => {
         [location]
     );
 
-    const handleFetchApartment = useCallback(() => {
-        setLoading(true);
-        return addSearchedLocation(location)
-            .then(() => setIsRedirect(true))
-            .catch((err) => setError(err.message))
-            .finally(() => setLoading(false));
+    const handleRedirect = useCallback(() => {
+        setIsRedirect(true);
     });
 
     const handleLocationClick = useCallback(() => {
@@ -52,7 +48,7 @@ const ContentSearchPure = ({ addSearchedLocation, getLocation }) => {
                     <input className={styles.searchInput} placeholder="Newcastle" onChange={handleInputChange} />
                 </div>
                 <div className={styles.navigationButtons}>
-                    <button className={cx(styles.go, styles.button)} onClick={handleFetchApartment}>
+                    <button className={cx(styles.go, styles.button)} onClick={handleRedirect}>
                         Go
                     </button>
                     <button className={cx(styles.myLocation, styles.button)} onClick={handleLocationClick}>

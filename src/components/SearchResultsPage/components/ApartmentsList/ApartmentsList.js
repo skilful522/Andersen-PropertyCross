@@ -7,6 +7,7 @@ import Error from '../../../Error/Error';
 import debounce from '../../../../utils/debounce';
 import { withRouter } from 'react-router-dom';
 import getApartmentId from '../../../../utils/getApartmentId';
+import addSearchedLocation from '../../../SearchPage/actions/addSearchedLocation';
 
 class ApartmentsList extends React.PureComponent {
     state = {
@@ -14,17 +15,23 @@ class ApartmentsList extends React.PureComponent {
     };
 
     componentDidMount() {
-        if (!this.props.apartmentsList.length) {
-            this.loadApartments();
-        }
+        this.loadApartments();
     }
 
     loadApartments = () => {
         this.setState({ loading: true });
-        const { getApartmentsList, currentPage } = this.props;
+        const { getApartmentsList, currentPage, match } = this.props;
+        const { location } = match.params;
 
-        return getApartmentsList({ city: this.props.match.params.location, page: currentPage + 1 })
-            .catch((error) => this.setState({ error: error.message }))
+        return getApartmentsList({ city: location, page: currentPage + 1 })
+            .then(({ payload: { listings } }) => {
+                if (!listings.length) {
+                    this.setState({ error: 'There was a problem with your search' });
+                } else {
+                    addSearchedLocation(location);
+                }
+            })
+            .catch(() => this.setState({ error: 'There was a problem with your search' }))
             .finally(() => this.setState({ loading: false }));
     };
 
@@ -35,12 +42,12 @@ class ApartmentsList extends React.PureComponent {
         const { apartmentsList, match, totalResults } = this.props;
         const { location } = match.params;
 
-        if (!apartmentsList.length) {
-            return <Loader />;
-        }
-
         if (error) {
             return <Error error={error} />;
+        }
+
+        if (!apartmentsList.length) {
+            return <Loader />;
         }
 
         return (
