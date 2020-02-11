@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import SearchedListContainer from '../../containers/SearchedListContainer';
 import { Redirect } from 'react-router-dom';
 import styles from './ContentSearch.css';
@@ -7,10 +7,10 @@ import Loader from '../../../Loader/Loader';
 import cx from 'classnames';
 
 const ContentSearchPure = ({ addSearchedLocation, getLocation }) => {
-    const [location, setLocation] = useState('Newcastle');
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState();
-    const [isRedirect, setIsRedirect] = useState(false);
+    const [location, setLocation] = React.useState('Newcastle');
+    const [loading, setLoading] = React.useState(false);
+    const [error, setError] = React.useState();
+    const [isRedirect, setIsRedirect] = React.useState(false);
 
     const handleInputChange = useCallback(
         (event) => {

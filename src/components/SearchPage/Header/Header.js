@@ -1,10 +1,10 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import styles from './Header.css';
 import { Redirect } from 'react-router-dom';
 import cx from 'classnames';
 
 const Header = () => {
-    const [isRedirect, setIsRedirect] = useState(false);
+    const [isRedirect, setIsRedirect] = React.useState(false);
 
     const handleClick = useCallback(() => {
         setIsRedirect(true);
