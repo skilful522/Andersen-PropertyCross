@@ -4,15 +4,16 @@ import { NavLink } from 'react-router-dom';
 import cx from 'classnames';
 import Loader from '../Loader/Loader';
 import ApartmentView from './ApartmentView';
+import { CurrentApartment, Match, FetchCurrentApartment } from '../../interfaces';
 
 interface Props {
-    getFavoriteList: () => Promise<any>,
-    currentApartment: CurrentApartment,
-    match: Match,
-    fetchCurrentApartment: (payload: FetchCurrentApartment) => Promise<any>,
-    addApartmentToFavList: (currentApartment:CurrentApartment) => Promise<any>,
-    removeApartmentFromFavList: (currentApartment: CurrentApartment) => Promise<any>,
-    isAdded: boolean,
+    getFavoriteList: () => Promise<any>;
+    currentApartment: CurrentApartment;
+    match: Match;
+    fetchCurrentApartment: (payload: FetchCurrentApartment) => Promise<any>;
+    addApartmentToFavList: (currentApartment: CurrentApartment) => Promise<any>;
+    removeApartmentFromFavList: (currentApartment: CurrentApartment) => Promise<any>;
+    isAdded: boolean;
 }
 
 class ApartmentPagePure extends PureComponent<Props> {
@@ -85,6 +86,5 @@ class ApartmentPagePure extends PureComponent<Props> {
         );
     }
 }
-
 
 export default ApartmentPagePure;

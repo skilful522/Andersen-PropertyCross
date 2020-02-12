@@ -1,4 +1,4 @@
-import apartmentsService from '../../../../services/apartmentsService';
+import apartmentsService from '../../../services/apartmentsService';
 import getApartmentId from '../../../utils/getApartmentId';
 
 function fetchCurrentApartment({ id, location, page }) {

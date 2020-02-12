@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './Error.css';
 
 interface Props {
-    error: string,
+    error: string;
 }
 
-const Error = ({ error } : Props) => {
+const Error = ({ error }: Props) => {
     return <div className={styles.errorWrapper}>{error}</div>;
 };
 

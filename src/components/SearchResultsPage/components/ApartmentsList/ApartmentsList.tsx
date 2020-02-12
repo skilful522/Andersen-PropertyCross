@@ -7,23 +7,25 @@ import debounce from '../../../../utils/debounce';
 import { withRouter } from 'react-router-dom';
 import getApartmentId from '../../../../utils/getApartmentId';
 import addSearchedLocation from '../../../SearchPage/actions/addSearchedLocation';
+import { Match, Apartment } from '../../../../interfaces';
 
 interface Props {
-    apartmentsList: Apartment[],
-    getApartmentsList: (payload:{ city: string; page: number }) => Promise<any>,
-    currentPage: number,
-    match: Match,
-    totalResults: number
+    getApartmentsList: (payload: { city: string; page: number }) => Promise<any>;
+    match: Match;
+    apartmentsList: Apartment[];
+    totalResults: number;
 }
 
 type State = {
-    loading: boolean,
-    error?: string
-}
+    loading: boolean;
+    currentPage: number;
+    error?: string;
+};
 
-class ApartmentsList extends React.PureComponent<Props>{
-    state: State= {
+class ApartmentsList extends React.PureComponent<Props> {
+    state: State = {
         loading: false,
+        currentPage: 1,
     };
 
     componentDidMount() {
@@ -32,11 +34,12 @@ class ApartmentsList extends React.PureComponent<Props>{
 
     loadApartments = () => {
         this.setState({ loading: true });
-        const { getApartmentsList, currentPage, match } = this.props;
+        const { getApartmentsList, match } = this.props;
         const { location } = match.params;
 
-        return getApartmentsList({ city: location, page: currentPage + 1 })
+        return getApartmentsList({ city: location, page: this.state.currentPage })
             .then(({ payload: { listings } }) => {
+                this.setState({ currentPage: this.state.currentPage + 1 });
                 if (!listings.length) {
                     this.setState({ error: 'There was a problem with your search' });
                 } else {
@@ -51,15 +54,15 @@ class ApartmentsList extends React.PureComponent<Props>{
 
     render() {
         const { error, loading } = this.state;
-        const { apartmentsList, match, totalResults } = this.props;
+        const { apartmentsList, totalResults, match } = this.props;
         const { location } = match.params;
+
+        if (!apartmentsList || loading) {
+            return <Loader />;
+        }
 
         if (error) {
             return <Error error={error} />;
-        }
-
-        if (!apartmentsList.length) {
-            return <Loader />;
         }
 
         return (
@@ -67,6 +70,7 @@ class ApartmentsList extends React.PureComponent<Props>{
                 <h1 className={styles.title}>
                     {apartmentsList.length} of {totalResults} matches
                 </h1>
+
                 {apartmentsList.map((apartment) => (
                     <ApartmentAds
                         bedroomNumber={Number(apartment.bedroom_number)}

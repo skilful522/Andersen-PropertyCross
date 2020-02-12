@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './ApartmentView.css';
+import { CurrentApartment } from '../../interfaces';
 
 interface Props {
     currentApartment: CurrentApartment;

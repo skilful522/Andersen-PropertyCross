@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import styles from './SearchedList.css';
 
 interface Props {
-    fetchSearchedList: () => Promise<any>,
-    searchedList: string[]
+    fetchSearchedList: () => Promise<any>;
+    searchedList: string[];
 }
 
 class SearchedListPure extends Component<Props> {

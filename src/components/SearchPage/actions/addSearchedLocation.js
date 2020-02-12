@@ -1,6 +1,6 @@
-import apartmentsService from '../../../../services/apartmentsService';
-import setLocaleStorage from '../../../../services/setLocalStorage';
-import getLocalStorage from '../../../../services/getLocalStorage';
+import apartmentsService from '../../../services/apartmentsService';
+import setLocaleStorage from '../../../services/setLocalStorage';
+import getLocalStorage from '../../../services/getLocalStorage';
 
 function addSearchedLocation(location) {
     return apartmentsService({ place_name: location }).then(() => {

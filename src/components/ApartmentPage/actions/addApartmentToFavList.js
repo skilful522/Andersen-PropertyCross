@@ -1,5 +1,5 @@
-import getLocalStorage from '../../../../services/getLocalStorage';
-import setLocaleStorage from '../../../../services/setLocalStorage';
+import getLocalStorage from '../../../services/getLocalStorage';
+import setLocaleStorage from '../../../services/setLocalStorage';
 import { includes } from 'ramda';
 
 function addApartmentToFavList(apartment) {
