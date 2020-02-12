@@ -1,4 +1,4 @@
-import getLocalStorage from '../../../../services/getLocalStorage';
+import getLocalStorage from '../../../services/getLocalStorage';
 
 function getFavoriteList() {
     return (dispatch) => {

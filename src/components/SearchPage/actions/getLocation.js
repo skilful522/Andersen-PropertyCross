@@ -1,5 +1,5 @@
-import apartmentsService from '../../../../services/apartmentsService';
-import getCoordinates from '../../../../services/getCoordinates';
+import apartmentsService from '../../../services/apartmentsService';
+import getCoordinates from '../../../services/getCoordinates';
 
 function getLocation() {
     return getCoordinates().then((coordinates) => {

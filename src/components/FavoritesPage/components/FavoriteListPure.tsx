@@ -3,10 +3,11 @@ import ApartmentAds from '../../SearchResultsPage/components/ApartmentAds/Apartm
 import getApartmentId from '../../../utils/getApartmentId';
 import styles from './FavoriteListPure.css';
 import Error from '../../Error/Error';
+import { Apartment } from '../../../interfaces';
 
 interface Props {
-    getFavoriteList: () => Promise<any>,
-    favoriteList: Apartment[],
+    getFavoriteList: () => Promise<any>;
+    favoriteList: Apartment[];
 }
 
 class FavoriteListPure extends Component<Props> {

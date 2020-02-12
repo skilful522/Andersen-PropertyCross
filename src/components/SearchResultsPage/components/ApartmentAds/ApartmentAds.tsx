@@ -3,17 +3,17 @@ import styles from './ApartmentAds.css';
 import { Link } from 'react-router-dom';
 
 interface Props {
-    image: string,
-    price: string,
-    location: string,
-    id: string,
-    bedroomNumber: number,
-    bathroomNumber: number,
-    summary: string,
-    title: string,
+    image: string;
+    price: string;
+    location: string;
+    id: string;
+    bedroomNumber: number;
+    bathroomNumber: number;
+    summary: string;
+    title: string;
 }
 
-const ApartmentAds = ({ image, price, location, id, bedroomNumber, bathroomNumber, summary, title } : Props) => {
+const ApartmentAds = ({ image, price, location, id, bedroomNumber, bathroomNumber, summary, title }: Props) => {
     return (
         <Link
             to={{

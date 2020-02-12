@@ -6,11 +6,11 @@ import Loader from '../../../Loader/Loader';
 import cx from 'classnames';
 
 interface Props {
-    addSearchedLocation: (location: string) => Promise<any>,
-    getLocation: () => Promise<any>,
+    addSearchedLocation: (location: string) => Promise<any>;
+    getLocation: () => Promise<any>;
 }
 
-const ContentSearchPure: React.FC<Props> = ({ addSearchedLocation, getLocation }) => {
+const ContentSearchPure = ({ addSearchedLocation, getLocation }: Props) => {
     const [location, setLocation] = React.useState<string>('Newcastle');
     const [loading, setLoading] = React.useState<boolean>(false);
     const [error, setError] = React.useState<string>();
@@ -26,7 +26,7 @@ const ContentSearchPure: React.FC<Props> = ({ addSearchedLocation, getLocation }
 
     const handleRedirect = useCallback(() => {
         setIsRedirect(true);
-    },[isRedirect]);
+    }, [isRedirect]);
 
     const handleLocationClick = useCallback(() => {
         setLoading(true);

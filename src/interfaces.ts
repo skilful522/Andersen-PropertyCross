@@ -1,11 +1,11 @@
-interface Match {
+export interface Match {
     params: {
         location: string,
         id: string,
     }
 }
 
-interface CurrentApartment {
+export interface CurrentApartment {
     price_formatted: string,
     title: string,
     thumb_url: string,
@@ -14,13 +14,13 @@ interface CurrentApartment {
     summary: string,
 }
 
-interface FetchCurrentApartment {
+export interface FetchCurrentApartment {
     id: string,
     location: string,
     page: number,
 }
 
-interface Apartment {
+export interface Apartment {
     bedroom_number: number,
     bathroom_number: number,
     summary: string,

@@ -1,4 +1,4 @@
-import getParams from '../src/utils/getParams';
+import getParams from '../utils/getParams';
 
 const defaultParams = {
     encoding: 'json',
@@ -8,7 +8,7 @@ const defaultParams = {
     listing_type: 'buy',
 };
 
-const url = 'https://api.nestoria.co.uk/api';
+const url = 'https://cors-anywhere.herokuapp.com/https://api.nestoria.co.uk/api';
 
 function validateResponseCode(data) {
     const responseCode = Number(data.response.application_response_code);
