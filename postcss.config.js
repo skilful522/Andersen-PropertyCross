@@ -7,7 +7,7 @@ module.exports = {
             stage: 0,
             features: {
                 'custom-media-queries': {
-                    importFrom: './constants/mediaVariables.css',
+                    importFrom: './src/constants/mediaVariables.css',
                 },
             },
         }),
