@@ -42,18 +42,18 @@
 .titleWrapper {
     display: flex;
     justify-content: space-around;
-    margin: 20px 80px 20px;
+    margin: 20px 90px 20px;
 
     @media (--tablet-width) {
         margin: 20px 290px 20px;
     }
 
     @media (--desktop-width) {
-        margin: 20px 390px 20px;
+        margin: 20px 420px 20px;
     }
 
     @media (--large-desktop-width) {
-        margin: 20px 540px 20px;
+        margin: 20px 650px 20px;
     }
 }
 

@@ -2,7 +2,8 @@ import apartmentsService from '../../../services/apartmentsService';
 import getCoordinates from '../../../services/getCoordinates';
 
 function getLocation() {
-    return getCoordinates().then((coordinates) => {
+    return getCoordinates().then(({ coordinates, clearTimeout }) => {
+        clearTimeout();
         return apartmentsService({
             centre_point: `${coordinates.latitude},${coordinates.longitude}`,
         }).then((data) => data.locations[0].title);
